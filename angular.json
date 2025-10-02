@@ -5,7 +5,12 @@
   "projects": {
     "fh-github-issues": {
       "projectType": "application",
-      "schematics": {},
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "none",
+          "prefix": ""
+        }
+      },
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
