@@ -9,7 +9,8 @@
         "@schematics/angular:component": {
           "style": "none",
           "prefix": "",
-          "changeDetection": "OnPush"
+          "changeDetection": "OnPush",
+          "flat": true
         }
       },
       "root": "",
