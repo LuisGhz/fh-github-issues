@@ -23,4 +23,5 @@ export class IssuePage {
   );
 
   issueQuery = this.#issueService.issuesQuery;
+  issueCommentsQuery = this.#issueService.issueCommentsQuery;
 }

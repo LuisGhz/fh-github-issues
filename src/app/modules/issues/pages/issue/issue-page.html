@@ -6,4 +6,15 @@
   <p>Loading...</p>
 } @else {
   <issue-comment [issue]="issueQuery.data()!"></issue-comment>
+  <hr />
+  @if (issueCommentsQuery.isLoading()) {
+    <p>Loading comments...</p>
+  } @else {
+    @for (comment of issueCommentsQuery.data(); track $index) {
+      <issue-comment [issue]="comment"></issue-comment>
+      <hr />
+    } @empty {
+      <p>No comments found.</p>
+    }
+  }
 }
