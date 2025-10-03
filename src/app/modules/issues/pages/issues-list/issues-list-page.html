@@ -13,7 +13,13 @@
   <!-- List -->
   <div class="mt-4 flex flex-col col-span-2">
     <h3>Issues</h3>
-    <a routerLink="/issues/123">Ir a issue 123</a>
+    @if (issuesQuery.isLoading()) {
+      <p>Loading...</p>
+    } @else {
+      @for (issue of issuesQuery.data(); track $index) {
+        <issue-item [issue]="issue"></issue-item>
+      }
+    }
   </div>
 
   <!-- Labels -->
