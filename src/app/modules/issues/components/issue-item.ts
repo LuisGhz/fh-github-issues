@@ -16,6 +16,7 @@ export class IssueItem {
   isOpen = computed(() => this.issue().state === 'open');
 
   prefetchIssue() {
-    this.#issueService.prefetchIssue(this.issue().number);
+    // this.#issueService.prefetchIssue(this.issue().number);
+    this.#issueService.setIssueData(this.issue());
   }
 }

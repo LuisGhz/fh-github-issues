@@ -2,6 +2,7 @@ import { inject, Injectable, signal } from '@angular/core';
 import { injectQuery, QueryClient } from '@tanstack/angular-query-experimental';
 import { getIssueByNumber } from '../actions/get-issue-by-number.action';
 import { getIssueComments } from '../actions/get-issue-comments.action';
+import { GithubIssue } from '../interfaces';
 
 @Injectable({
   providedIn: 'root',
@@ -35,5 +36,9 @@ export class IssueService {
       queryFn: () => getIssueByNumber(number),
       staleTime: this.#STALE_TIME,
     });
+  }
+
+  setIssueData(issue: GithubIssue) {
+    this.#queryClient.setQueryData(['issue', issue.number], issue);
   }
 }
