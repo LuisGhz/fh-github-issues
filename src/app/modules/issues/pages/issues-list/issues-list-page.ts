@@ -1,11 +1,11 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { CommonModule } from '@angular/common';
 import { IssuesService } from '../../services/issues.service';
 import { LabelsSelector } from '../../components/labels-selector';
 
 @Component({
   selector: 'issues-list-page',
-  imports: [RouterLink, LabelsSelector],
+  imports: [CommonModule, LabelsSelector],
   templateUrl: './issues-list-page.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -14,5 +14,9 @@ export class IssuesListPage {
 
   get labelsQuery() {
     return this.issuesService.labelsQuery;
+  }
+
+  get issuesQuery() {
+    return this.issuesService.issuesQuery;
   }
 }
