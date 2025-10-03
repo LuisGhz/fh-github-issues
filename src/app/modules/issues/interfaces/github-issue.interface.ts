@@ -116,6 +116,8 @@ export enum NodeID {
 
 export enum State {
   Open = 'open',
+  Closed = 'closed',
+  All = 'all',
 }
 
 export enum Title {
