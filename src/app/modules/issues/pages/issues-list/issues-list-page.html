@@ -19,5 +19,10 @@
   <!-- Labels -->
   <div class="mt-4 flex flex-col">
     <h3>Label</h3>
+    @if (labelsQuery.isLoading()) {
+      <p>Loading...</p>
+    } @else {
+      <labels-selector [labels]="labelsQuery.data() || []"></labels-selector>
+    }
   </div>
 </section>
