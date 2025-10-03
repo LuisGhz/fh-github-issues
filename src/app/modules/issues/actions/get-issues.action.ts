@@ -3,11 +3,12 @@ import { GithubIssue } from '../interfaces';
 import { environment } from 'src/environments/environment.development';
 import { State } from '../interfaces/github-issue.interface';
 
-export const getIssues = async (state: State = State.All) => {
+export const getIssues = async (state: State = State.All, labels: string[] = []) => {
   await sleep(3000);
   try {
     const params = new URLSearchParams();
     params.append('state', state);
+    params.append('labels', labels.join(','));
 
     const response = await fetch(`${environment.baseUrl}/issues?${params}`, {
       headers: {

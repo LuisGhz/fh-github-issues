@@ -5,6 +5,8 @@
       [ngStyle]="{
         'border-color': '#' + label.color,
       }"
+      [class.selected-label]="isSelected(label.name)"
+      (click)="toggleLabel(label.name)"
     >
       {{ label.name }}
     </div>

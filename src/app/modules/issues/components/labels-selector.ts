@@ -1,6 +1,7 @@
-import { ChangeDetectionStrategy, Component, input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, input } from '@angular/core';
 import { GithubLabel } from '../interfaces';
 import { CommonModule } from '@angular/common';
+import { IssuesService } from '../services/issues.service';
 
 @Component({
   selector: 'labels-selector',
@@ -9,5 +10,14 @@ import { CommonModule } from '@angular/common';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LabelsSelector {
+  #issuesService = inject(IssuesService);
   labels = input.required<GithubLabel[]>();
+
+  isSelected(label: string) {
+    return this.#issuesService.selectedLabels()().has(label);
+  }
+
+  toggleLabel(label: string) {
+    this.#issuesService.toggleLabel(label);
+  }
 }
