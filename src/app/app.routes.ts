@@ -7,7 +7,7 @@ export const routes: Routes = [
       import('./modules/issues/pages/issues-list/issues-list-page').then((m) => m.IssuesListPage),
   },
   {
-    path: 'issues/:id',
+    path: 'issues/:number',
     loadComponent: () => import('./modules/issues/pages/issue/issue-page').then((m) => m.IssuePage),
   },
   {
