@@ -1,9 +1,10 @@
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
+import { MarkdownModule } from 'ngx-markdown';
 import { GithubIssue } from '../interfaces';
 
 @Component({
   selector: 'issue-comment',
-  imports: [],
+  imports: [MarkdownModule],
   templateUrl: './issue-comment.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
