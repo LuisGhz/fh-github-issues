@@ -10,11 +10,11 @@ export const getIssueByNumber = async (number: number) => {
         Authorization: `Bearer ${environment.githubToken}`,
       },
     });
-    if (!response.ok) throw new Error('Failed to fetch issue');
+    if (!response.ok) throw new Error(`Failed to fetch issue number ${number}`);
     const data = (await response.json()) as GithubIssue;
     return data;
   } catch (error) {
     console.log(error);
-    throw error;
+    throw `Failed to fetch issue number ${number}`;
   }
 };
